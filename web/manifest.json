@@ -1,6 +1,6 @@
 {
-    "name": "wallet_cryptocurrency",
-    "short_name": "wallet_cryptocurrency",
+    "name": "cyberCrypto",
+    "short_name": "cyberCrypto",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

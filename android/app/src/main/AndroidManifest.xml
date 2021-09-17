@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.wallet_cryptocurrency">
+    package="com.example.cyberCrypto">
    <application
-        android:label="wallet_cryptocurrency"
+        android:label="cyberCrypto"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

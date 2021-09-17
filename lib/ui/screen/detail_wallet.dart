@@ -1,21 +1,27 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet_cryptocurrency/ui/component.dart';
+import 'package:cyberCrypto/ui/component.dart';
 
 class DetailWalletScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[50],
+      // backgroundColor: Colors.blueGrey[50],
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100.0),
         child: SafeArea(
           child: appBar(
               left: GestureDetector(
                   onTap: () => Navigator.pop(context),
-                  child: Icon(Icons.arrow_back_ios, color: Colors.black54)),
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    // color: Colors.black54
+                  )),
               title: 'Bitcoin Wallet',
-              right: Icon(Icons.more_vert, color: Colors.black54)),
+              right: Icon(
+                Icons.more_vert,
+                //  color: Colors.black54
+              )),
         ),
       ),
       body: Padding(
@@ -47,7 +53,7 @@ class DetailWalletScreen extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(horizontal: 12, vertical: 7),
                       decoration: BoxDecoration(
-                          color: Colors.blueGrey[200],
+                          // color: Colors.blueGrey[200],
                           borderRadius: BorderRadius.all(Radius.circular(30))),
                       child: Text(
                         'Week',
@@ -201,7 +207,7 @@ class DetailWalletScreen extends StatelessWidget {
           show: false,
         ),
         belowBarData: BarAreaData(show: true, colors: [
-          Colors.orange[100],
+          Colors.orange[100]!,
         ]),
       ),
     ];
@@ -226,12 +232,12 @@ class DetailWalletScreen extends StatelessWidget {
   }
 
   Widget _cardWallet(
-      {String crypto,
+      {String? crypto,
       cryptoShort,
       iconUrl,
       total,
       totalCrypto,
-      double precent}) {
+      double? precent}) {
     return card(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -273,7 +279,7 @@ class DetailWalletScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 7),
                 decoration: BoxDecoration(
-                    color: precent >= 0 ? Colors.green : Colors.pink,
+                    color: precent! >= 0 ? Colors.green : Colors.pink,
                     borderRadius: BorderRadius.all(Radius.circular(30))),
                 child: Text(
                   precent >= 0 ? '+ $precent %' : '$precent %',
@@ -295,7 +301,7 @@ class DetailWalletScreen extends StatelessWidget {
     );
   }
 
-  Widget _actionButton({Color color, String text}) {
+  Widget _actionButton({Color? color, String? text}) {
     return card(
         child: Column(
       children: [

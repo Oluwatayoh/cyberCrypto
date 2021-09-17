@@ -1,4 +1,4 @@
-package com.example.wallet_cryptocurrency
+package com.example.cyberCrypto
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "334594917024",
+    "project_id": "cybercrypto-365b3",
+    "storage_bucket": "cybercrypto-365b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334594917024:android:74e356867303410eb3bfc5",
+        "android_client_info": {
+          "package_name": "com.example.cyberCrypto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334594917024-ueni4fv2mnicovuujlda46pkst9acve3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7fugJ0IDX08KDjAxGWztOsz9cmWeIVqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334594917024-ueni4fv2mnicovuujlda46pkst9acve3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "334594917024-fo75jeebpkkmnv7ot9eebk9cdufb1ult.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cyberCrypto"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
