@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 
 Widget listCryptoItem(
     {String? iconUrl,
-    double precent = 0,
+    String? percent,
+    Color? color,
     String? myCrypto,
-    myBalance,
-    myProfit,
-    var coinData}) {
+    lastUpdated, price
+    }) {
   return Padding(
     padding: const EdgeInsets.only(bottom: 20),
     child: card(
+      color: color,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -28,7 +29,7 @@ Widget listCryptoItem(
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 Text(
-                  '$myProfit',
+                  '$lastUpdated',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     // color: Colors.black45,
@@ -42,14 +43,14 @@ Widget listCryptoItem(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '$myBalance',
+                '$price',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               Text(
-                '$precent  %',
+                '$percent%',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: precent.toString().contains('-')
+                  color: percent.toString().contains('-')
                       ? Colors.red
                       : Colors.green,
                 ),

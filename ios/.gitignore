@@ -23,6 +23,7 @@ Flutter/app.zip
 Flutter/flutter_assets/
 Flutter/flutter_export_environment.sh
 ServiceDefinitions.json
+/ios/build
 Runner/GeneratedPluginRegistrant.*
 
 # Exceptions to above rules.

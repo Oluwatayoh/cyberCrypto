@@ -5,12 +5,13 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 
 Widget card(
-    {double width = double.infinity, double padding = 20, Widget? child}) {
+    {double width = double.infinity, Color? color, double padding = 20, Widget? child}) {
   return Container(
     width: width,
     padding: EdgeInsets.all(padding),
     decoration: BoxDecoration(
-        color: Colors.grey.shade200,
+        color: color,
+        // Colors.grey.shade200,
         borderRadius: BorderRadius.all(Radius.circular(15))),
     child: child,
   );

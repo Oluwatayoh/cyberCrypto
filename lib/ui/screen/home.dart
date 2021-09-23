@@ -1,10 +1,14 @@
 import 'package:cyberCrypto/net/coinNotifier.dart';
 import 'package:cyberCrypto/ui/component/cardWallet.dart';
+import 'package:cyberCrypto/ui/component/constants.dart';
 import 'package:cyberCrypto/ui/component/cryptoItem.dart';
 import 'package:cyberCrypto/ui/models/chunkDataModel.dart';
+import 'package:cyberCrypto/ui/themes/theme_model.dart';
 import 'package:flutter/material.dart';
 import 'package:cyberCrypto/ui/component.dart';
 import 'package:cyberCrypto/ui/screen/detail_wallet.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +18,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<BigDataModel> _coinList = [];
+
+  DateFormat dateFormat = DateFormat("HH:mm:ss");
 
   @override
   void initState() {
@@ -28,88 +34,78 @@ class _HomeScreenState extends State<HomeScreen> {
     CoinNotifier cn = Provider.of<CoinNotifier>(context);
     _coinList = cn.coinLists;
     print(_coinList.length);
-    return Column(
-      children: [
-        SizedBox(
-          height: 25,
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(children: [
+    return Consumer<ThemeModel>(
+        builder: (context, ThemeModel themeNotifier, child) {
+       return Column(
+          children: [
             SizedBox(
-              width: 20,
+              height: 25,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DetailWalletScreen()),
-                );
-              },
-              child: cardWalletBalance(context,
-                  total: '\$39.589',
-                  totalCrypto: '7.251332 BTC',
-                  precent: 7.999),
-            ),
-            cardWalletBalance(context,
-                total: '\$43.589',
-                totalCrypto: '5.251332 ETH',
-                precent: -2.999),
-          ]),
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Text('Current Rate',
-                style: TextStyle(fontFamily: "Nunito-Medium")
-                // style: TextStyle(color: Colors.black45)
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(children: [
+                SizedBox(
+                  width: 20,
                 ),
-          ),
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              child: Column(
-                children: [
-                  listCryptoItem(
-                    iconUrl:
-                        'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Bitcoin-icon.png',
-                    myCrypto: '3.529020 BTC',
-                    myBalance: '\$ 5.441',
-                    myProfit: '\$19.153',
-                    precent: 4.32,
-                  ),
-                  listCryptoItem(
-                    iconUrl:
-                        'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Ethereum-icon.png',
-                    myCrypto: '12.83789 ETH',
-                    myBalance: '\$ 401',
-                    myProfit: '\$4.822',
-                    precent: 3.97,
-                  ),
-                  listCryptoItem(
-                    iconUrl:
-                        'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Ripple-icon.png',
-                    myCrypto: '1911.6374736 XRP',
-                    myBalance: '\$ 0.45',
-                    myProfit: '\$859',
-                    precent: -13.55,
-                  ),
-                ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailWalletScreen()),
+                    );
+                  },
+                  child: cardWalletBalance(context,
+                      total: '\$39.589',
+                      totalCrypto: '7.251332 BTC',
+                      color: themeNotifier.isDark? HexColor(dModeGrey2): HexColor(dModeLightDark),
+                      precent: 7.999),
+                ),
+                cardWalletBalance(context,
+                    total: '\$43.589',
+                     color: themeNotifier.isDark? HexColor(dModeGrey2): HexColor(dModeLightDark),
+                    totalCrypto: '5.251332 ETH',
+                    precent: -2.999),
+              ]),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Text('Current Rate',
+                    style: TextStyle(fontFamily: "Nunito-Medium")
+                    // style: TextStyle(color: Colors.black45)
+                    ),
               ),
             ),
-          ),
-        )
-      ],
+            SizedBox(
+              height: 15,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: Column(
+                    children: _coinList.map((e) => listCryptoItem(
+                        iconUrl:
+                            e.slug, 
+                            color: themeNotifier.isDark? HexColor(dModeGrey2): HexColor(dModeLightDark),
+                        myCrypto: e.name.toString(),
+                        price: '\$${e.quote!.uSD!.price!.toStringAsFixed(2)}',
+                        lastUpdated: dateFormat.format(DateTime.parse(e.quote!.uSD!.lastUpdated!)).toString(),
+                        percent: e.quote!.uSD!.percentChange1h.toString(),
+                      ) ).toList() 
+                   
+                  ),
+                ),
+              ),
+            )
+          ],
+        );
+      }
     );
   }
 }

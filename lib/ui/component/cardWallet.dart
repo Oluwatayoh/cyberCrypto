@@ -3,10 +3,11 @@
 import 'package:flutter/material.dart';
 
 Widget cardWalletBalance(BuildContext context,
-      {String? total, totalCrypto, double? precent}) {
+      {String? total, totalCrypto, double? precent, Color? color}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: card(
+        color: color,
         width: MediaQuery.of(context).size.width - 50,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

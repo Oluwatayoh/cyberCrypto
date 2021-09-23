@@ -3,12 +3,9 @@ class BigDataModel {
   String? name;
   String? symbol;
   String? slug;
-  int? numMarketPairs;
   String? dateAdded;
   List<String>? tags;
-  int? maxSupply;
-  int? circulatingSupply;
-  int? totalSupply;
+  
   int? cmcRank;
   String? lastUpdated;
   Quote? quote;
@@ -19,12 +16,8 @@ class BigDataModel {
       this.name,
       this.symbol,
       this.slug,
-      this.numMarketPairs,
       this.dateAdded,
       this.tags,
-      this.maxSupply,
-      this.circulatingSupply,
-      this.totalSupply,
       this.cmcRank,
       this.lastUpdated,
       this.platform,
@@ -35,12 +28,8 @@ class BigDataModel {
     name = json['name'];
     symbol = json['symbol'];
     slug = json['slug'];
-    numMarketPairs = json['num_market_pairs'];
     dateAdded = json['date_added'];
     tags = json['tags'].cast<String>();
-    maxSupply = json['max_supply'];
-    circulatingSupply = json['circulating_supply'];
-    totalSupply = json['total_supply'];
     cmcRank = json['cmc_rank'];
     lastUpdated = json['last_updated'];
     quote = json['quote'] != null ? new Quote.fromJson(json['quote']) : null;
@@ -55,12 +44,8 @@ class BigDataModel {
     data['name'] = this.name;
     data['symbol'] = this.symbol;
     data['slug'] = this.slug;
-    data['num_market_pairs'] = this.numMarketPairs;
     data['date_added'] = this.dateAdded;
     data['tags'] = this.tags;
-    data['max_supply'] = this.maxSupply;
-    data['circulating_supply'] = this.circulatingSupply;
-    data['total_supply'] = this.totalSupply;
     data['cmc_rank'] = this.cmcRank;
     data['last_updated'] = this.lastUpdated;
     if (this.platform != null) {
