@@ -27,9 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _running = true;
 
   Stream<List<BigDataModel>> _getCoins() async* {
+    CoinNotifier cn = Provider.of<CoinNotifier>(context, listen: false);
+    cn.getCoinsLists();
+    yield cn.coinLists;
     while (_running) {
-      await Future<void>.delayed(Duration(seconds: 10));
-      CoinNotifier cn = Provider.of<CoinNotifier>(context, listen: false);
+      await Future<void>.delayed(Duration(seconds: 50));
       cn.getCoinsLists();
       yield cn.coinLists;
     }
