@@ -15,12 +15,11 @@ class DetailWalletScreen extends StatelessWidget {
                   onTap: () => Navigator.pop(context),
                   child: Icon(
                     Icons.arrow_back_ios,
-                    // color: Colors.black54
                   )),
               title: 'Bitcoin Wallet',
               right: Icon(
                 Icons.more_vert,
-                //  color: Colors.black54
+                color: Colors.transparent,
               )),
         ),
       ),
@@ -57,7 +56,6 @@ class DetailWalletScreen extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(30))),
                       child: Text(
                         'Week',
-                        style: TextStyle(color: Colors.white),
                       )),
                   Text('Month'),
                   Text('Year'),
@@ -79,13 +77,13 @@ class DetailWalletScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            _dot(color: Colors.pink),
+                            _dot(color: Colors.red),
                             Text(
                               'Lower: \$4.896',
                               style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black45),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         ),
@@ -95,9 +93,9 @@ class DetailWalletScreen extends StatelessWidget {
                             Text(
                               'Higher:\$6.857',
                               style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black45),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         ),
@@ -117,7 +115,7 @@ class DetailWalletScreen extends StatelessWidget {
                           children: [
                             _dot(size: 18, color: Colors.orangeAccent),
                             Text(
-                              '1BTC=\$5.483',
+                              '1BTC = \$5.483',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
@@ -138,18 +136,14 @@ class DetailWalletScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: _actionButton(
-                    text: 'Buy',
-                    color: Colors.blue,
-                  ),
+                      text: 'Buy', color: Colors.blue, onTap: () {}),
                 ),
                 SizedBox(
                   width: 20,
                 ),
                 Expanded(
                   child: _actionButton(
-                    text: 'Sell',
-                    color: Colors.pink,
-                  ),
+                      text: 'Sell', color: Colors.red, onTap: () {}),
                 ),
               ],
             )
@@ -262,9 +256,9 @@ class DetailWalletScreen extends StatelessWidget {
           Text(
             '$totalCrypto',
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-                color: Colors.black87),
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -272,14 +266,14 @@ class DetailWalletScreen extends StatelessWidget {
               Text(
                 '$total',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.black38),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 7),
                 decoration: BoxDecoration(
-                    color: precent! >= 0 ? Colors.green : Colors.pink,
+                    color: precent! >= 0 ? Colors.green : Colors.red,
                     borderRadius: BorderRadius.all(Radius.circular(30))),
                 child: Text(
                   precent >= 0 ? '+ $precent %' : '$precent %',
@@ -293,38 +287,46 @@ class DetailWalletScreen extends StatelessWidget {
             ],
           ),
           Center(
-            child: Icon(Icons.keyboard_arrow_down,
-                size: 30, color: Colors.black45),
+            child: Icon(
+              Icons.keyboard_arrow_down,
+              size: 30,
+            ),
           )
         ],
       ),
     );
   }
 
-  Widget _actionButton({Color? color, String? text}) {
-    return card(
-        child: Column(
-      children: [
-        ClipOval(
-          child: Material(
-            color: color,
-            child: InkWell(
-              splashColor: Colors.red, // inkwell color
-              child: SizedBox(
-                  width: 56,
-                  height: 56,
-                  child: Icon(
-                    Icons.attach_money,
-                    color: Colors.white,
-                    size: 25.0,
-                  )),
-              onTap: () {},
+  Widget _actionButton({Color? color, String? text, Function? onTap}) {
+    return InkWell(
+      onTap: onTap!(),
+      child: card(
+          child: Column(
+        children: [
+          ClipOval(
+            child: Material(
+              color: color,
+              child: InkWell(
+                splashColor: Colors.red, // inkwell color
+                child: SizedBox(
+                    width: 56,
+                    height: 56,
+                    child: Icon(
+                      Icons.attach_money,
+                      color: Colors.white,
+                      size: 25.0,
+                    )),
+                onTap: () {},
+              ),
             ),
           ),
-        ),
-        SizedBox(height: 10),
-        Text('$text', style: TextStyle(fontSize: 24, color: Colors.black54))
-      ],
-    ));
+          SizedBox(height: 10),
+          Text('$text',
+              style: TextStyle(
+                fontSize: 24,
+              ))
+        ],
+      )),
+    );
   }
 }

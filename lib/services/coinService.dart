@@ -9,27 +9,6 @@ class CoinService {
   var currencyListingAPI = '${mainUrl}cryptocurrency/listings/latest?limit=10';
   Dio _dio = Dio();
 
-
-// Future<List<Country>> getCountries() async {
-//     var countries = <Country>[];
-
-//     try {
-//       var response = await client.get(Uri.parse('${base_url}public/countries'));
-//       var parsed = json.decode(response.body);
-
-//       if (response.statusCode == 200) {
-//         for (var country in parsed) {
-//           countries.add(Country.fromMap(country));
-//         }
-//       }
-//     } catch (e) {
-//       print(e);
-//     }
-
-//     return countries;
-//   }
-
-
   Future<List<BigDataModel>?> getCoins() async {
           var _cn = <BigDataModel> [];
     _dio.options.headers["X-CMC_PRO_API_KEY"] = apiKey;

@@ -1,0 +1,43 @@
+[
+    {
+       "createdAt":"2021-09-23T15:10:14.882Z",
+       "fullname":"Lauren Welch",
+       "avatar":"http://placeimg.com/640/480/business",
+       "email":"ojo@gmail.com",
+       "password":"password 1",
+       "wallet":[
+          {
+             "createdAt":"2021-09-24T02:14:55.151Z",
+             "accountName":"bitcoin",
+             "accountAddress":"1YSAcBqivXCpB1fVWWjZuHwBaHToWaLe",
+             "balance":14,
+             "id":"1"
+          },
+          {
+             "createdAt":"2021-09-23T22:30:54.498Z",
+             "accountName":"ethereum",
+             "accountAddress":"1zCN3GdycBzYBYFbkroZWG9nKG",
+             "balance":49,
+             "id":"2"
+          }
+       ],
+       "id":"1"
+    },
+    {
+       "createdAt":"2021-09-23T18:16:09.174Z",
+       "fullname":"Maryann Predovic",
+       "avatar":"http://placeimg.com/640/480/city",
+       "email":"Selina.Nolan@example.net",
+       "password":"password 2",
+       "wallet":[
+        {
+            "createdAt":"2021-09-23T22:30:54.498Z",
+            "accountName":"ethereum",
+            "accountAddress":"9zHHSGdycBzYBYFbkroZWG9nKG",
+            "balance":12,
+            "id":"2"
+         }
+       ],
+       "id":"2"
+    }
+ ]
