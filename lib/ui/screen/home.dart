@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:cyberCrypto/net/coinNotifier.dart';
 import 'package:cyberCrypto/services/authService.dart';
@@ -41,12 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getusers().then((value) => print(value));
-
-    // setState(() {
-    //   users =  _users;
-    //   print(_users.length);
-    // });
+    getusers().then((value) {
+      var users = UserData.fromJson(jsonDecode(value));
+      print(users);
+    });
   }
 
   @override

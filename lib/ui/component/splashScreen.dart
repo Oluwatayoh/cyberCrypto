@@ -1,5 +1,6 @@
-
+import 'package:cyberCrypto/ui/screen/home.dart';
 import 'package:cyberCrypto/ui/screen/login.dart';
+import 'package:cyberCrypto/ui/screen/mainPage.dart';
 import 'package:cyberCrypto/ui/themes/theme_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,7 @@ class SplashScreenMode extends StatelessWidget {
         builder: (context, ThemeModel themeNotifier, child) {
       return Scaffold(
           body: SplashScreenView(
-              navigateRoute: Login(),
+              navigateRoute: MainPage(),
               duration: 5000,
               speed: 1,
               imageSize: 350,
