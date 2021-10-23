@@ -1,5 +1,3 @@
-import 'package:cyberCrypto/ui/screen/home.dart';
-import 'package:cyberCrypto/ui/screen/login.dart';
 import 'package:cyberCrypto/ui/screen/mainPage.dart';
 import 'package:cyberCrypto/ui/themes/theme_model.dart';
 import 'package:flutter/material.dart';

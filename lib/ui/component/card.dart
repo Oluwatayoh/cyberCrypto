@@ -1,8 +1,4 @@
-import 'package:cyberCrypto/ui/component/constants.dart';
-import 'package:cyberCrypto/ui/themes/theme_model.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:provider/provider.dart';
 
 Widget card(
     {double width = double.infinity,

@@ -1,9 +1,5 @@
-import 'dart:io';
-
 import 'package:cyberCrypto/ui/models/chunkDataModel.dart';
 import 'package:cyberCrypto/ui/models/user.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 //Colors
 String dModeDark = "#13131a";

@@ -2,9 +2,7 @@ import 'package:cyberCrypto/services/navigationService.dart';
 import 'package:cyberCrypto/ui/component/appBar.dart';
 import 'package:cyberCrypto/ui/screen/home.dart';
 import 'package:cyberCrypto/ui/screen/login.dart';
-import 'package:cyberCrypto/ui/themes/theme_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 enum TabItem { home, logOut }
 

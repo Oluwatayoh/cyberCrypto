@@ -9,7 +9,6 @@ import 'package:cyberCrypto/ui/component/cryptoItem.dart';
 import 'package:cyberCrypto/ui/models/chunkDataModel.dart';
 import 'package:cyberCrypto/ui/models/user.dart';
 import 'package:cyberCrypto/ui/themes/theme_model.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:cyberCrypto/ui/screen/detail_wallet.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -40,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getusers().then((value) {
       var users = UserData.fromJson(jsonDecode(value));
